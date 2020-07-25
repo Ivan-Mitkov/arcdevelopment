@@ -16,7 +16,6 @@ import MenuIcon from "@material-ui/icons/Menu";
 import IconButton from "@material-ui/core/IconButton";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 
 import logo from "../../assets/logo.svg";
@@ -125,16 +124,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 const Header = (props) => {
+  const { value, setValue, setSelectedIndex, selectedIndex } = props;
   const classes = useStyles();
   const theme = useTheme();
   //for swipeable drawer
   const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
   const [openDrawer, setOpenDrawer] = useState(false);
   const matches = useMediaQuery(theme.breakpoints.down("md"));
-  const [value, setValue] = useState(0);
   const [anchorEl, setAnchorEl] = useState(null);
   const [openMenu, setOpenMenu] = useState(false);
-  const [selectedIndex, setSelectedIndex] = useState(0);
 
   const handleChange = (e, val) => {
     const dataset = e.target.dataset.value;
@@ -175,6 +173,7 @@ const Header = (props) => {
     } else {
       setValue(1);
     }
+    // eslint-disable-next-line
   }, [value]);
 
   const tabs = (
