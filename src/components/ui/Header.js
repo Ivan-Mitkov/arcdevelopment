@@ -68,6 +68,9 @@ const useStyles = makeStyles((theme) => ({
 
     height: "45px",
     color: "white",
+    "&:hover": {
+      backgroundColor: theme.palette.secondary.dark,
+    },
   },
   logoContainer: {
     padding: 0,
