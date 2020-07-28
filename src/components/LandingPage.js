@@ -9,6 +9,7 @@ import Typography from "@material-ui/core/Typography";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
+import { Link } from "react-router-dom";
 
 import customSoftwareIcon from "../assets/Custom Software Icon.svg";
 import mobileAppsIcon from "../assets/mobileIcon.svg";
@@ -117,7 +118,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const LandingPage = () => {
+const LandingPage = ({ setValue, setSelectedIndex }) => {
   const classes = useStyles();
   const theme = useTheme();
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
@@ -147,6 +148,9 @@ const LandingPage = () => {
                 <Button
                   className={[classes.estimateBtn, classes.btn].join(" ")}
                   variant="contained"
+                  component={Link}
+                  to="/estimate"
+                  onClick={() => setValue(5)}
                 >
                   Free Estimate
                 </Button>
@@ -154,7 +158,10 @@ const LandingPage = () => {
               <Grid item>
                 <Button
                   variant="outlined"
+                  component={Link}
+                  to="/revolution"
                   className={[classes.btn, classes.learnBtnHero].join(" ")}
+                  onClick={() => setValue(2)}
                 >
                   <span style={{ marginRight: "10px" }}> Learn More</span>
                   <ButtonArrow
@@ -201,6 +208,12 @@ const LandingPage = () => {
             <Button
               variant="outlined"
               className={[classes.btn, classes.learnBtnHero].join(" ")}
+              component={Link}
+              to="/customsoftware"
+              onClick={() => {
+                setValue(1);
+                setSelectedIndex(1);
+              }}
             >
               <span style={{ marginRight: "10px" }}> Learn More</span>
               <ButtonArrow
@@ -246,6 +259,12 @@ const LandingPage = () => {
             <Button
               variant="outlined"
               className={[classes.btn, classes.learnBtnHero].join(" ")}
+              component={Link}
+              to="/mobileapps"
+              onClick={() => {
+                setValue(1);
+                setSelectedIndex(2);
+              }}
             >
               <span style={{ marginRight: "10px" }}> Learn More</span>
               <ButtonArrow
@@ -288,6 +307,12 @@ const LandingPage = () => {
             <Button
               variant="outlined"
               className={[classes.btn, classes.learnBtnHero].join(" ")}
+              component={Link}
+              to="/websites"
+              onClick={() => {
+                setValue(1);
+                setSelectedIndex(3);
+              }}
             >
               <span style={{ marginRight: "10px" }}> Learn More</span>
               <ButtonArrow
@@ -334,6 +359,11 @@ const LandingPage = () => {
                   <Button
                     variant="outlined"
                     className={[classes.btn, classes.learnBtnHero].join(" ")}
+                    component={Link}
+                    to="/revolution"
+                    onClick={() => {
+                      setValue(2);
+                    }}
                   >
                     <span style={{ marginRight: "10px" }}> Learn More</span>
                     <ButtonArrow
@@ -382,6 +412,11 @@ const LandingPage = () => {
                       classes.learnBtnHero,
                       classes.whiteButton,
                     ].join(" ")}
+                    component={Link}
+                    to="/about"
+                    onClick={() => {
+                      setValue(3);
+                    }}
                   >
                     <span style={{ marginRight: "10px" }}> Learn More</span>
                     <ButtonArrow
@@ -411,6 +446,11 @@ const LandingPage = () => {
                       classes.learnBtnHero,
                       classes.whiteButton,
                     ].join(" ")}
+                    component={Link}
+                    to="/contact"
+                    onClick={() => {
+                      setValue(4);
+                    }}
                   >
                     <span style={{ marginRight: "10px" }}> Learn More</span>
                     <ButtonArrow
@@ -428,7 +468,7 @@ const LandingPage = () => {
       </Grid>
       {/* CALL TO ACTION */}
       <Grid item>
-        <CallToAction />
+        <CallToAction setValue={setValue} />
       </Grid>
     </Grid>
   );

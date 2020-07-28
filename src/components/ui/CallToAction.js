@@ -5,6 +5,7 @@ import ButtonArrow from "../../components/ui/ButtonArrow";
 import Typography from "@material-ui/core/Typography";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { makeStyles, useTheme } from "@material-ui/styles";
+import { Link } from "react-router-dom";
 
 import background from "../../assets/background.jpg";
 import mobileBackground from "../../assets/mobileBackground.jpg";
@@ -25,10 +26,10 @@ const useStyle = makeStyles((theme) => ({
     width: "100%",
     height: "30rem",
     //fixed image
-    backgroundAttachment:'fixed',
+    backgroundAttachment: "fixed",
     [theme.breakpoints.down("md")]: {
       backgroundImage: `url(${mobileBackground})`,
-      backgroundAttachment:'inherit',
+      backgroundAttachment: "inherit",
     },
   },
   estimateBtn: {
@@ -50,7 +51,7 @@ const useStyle = makeStyles((theme) => ({
     },
   },
 }));
-const CallToAction = () => {
+const CallToAction = ({ setValue }) => {
   const classes = useStyle();
   const theme = useTheme();
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
@@ -77,10 +78,15 @@ const CallToAction = () => {
             <Typography variant="subtitle2">
               Take advantage of the 21st Century
             </Typography>
-            <Grid container justify={matchesSM?'center':''}>
+            <Grid container justify={matchesSM ? "center" : null}>
               <Button
                 variant="outlined"
                 className={[classes.btn, classes.learnBtnHero].join(" ")}
+                component={Link}
+                to="/revolution"
+                onClick={() => {
+                  setValue(2);
+                }}
               >
                 <span style={{ marginRight: "10px" }}> Learn More</span>
                 <ButtonArrow
@@ -97,6 +103,11 @@ const CallToAction = () => {
         <Button
           variant="contained"
           className={[classes.estimateBtn, classes.btn].join(" ")}
+          component={Link}
+          to="/estimate"
+          onClick={() => {
+            setValue(5);
+          }}
         >
           Free Estimate
         </Button>
