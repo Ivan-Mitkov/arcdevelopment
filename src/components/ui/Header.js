@@ -89,6 +89,9 @@ const useStyles = makeStyles((theme) => ({
     "&:hover": {
       opacity: 1,
     },
+    "&:focus, &:active": {
+      opacity: 1,
+    },
   },
   drawerIconContainer: {
     marginLeft: "auto",
@@ -186,6 +189,7 @@ const Header = (props) => {
         onChange={handleChange}
         className={classes.tabContainer}
         indicatorColor="primary"
+        textColor={theme.palette.white}
       >
         <Tab label="Home" className={classes.tab} component={Link} to="/" />
         <Tab
