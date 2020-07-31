@@ -71,15 +71,43 @@ export default createMuiTheme({
     },
     body1: {
       color: arcGreyLight,
-     
-       '&:selected, &:active span':{
-        opacity:1
-      }
+
+      "&:selected, &:active span": {
+        opacity: 1,
+      },
     },
     body2: {
       fontSize: "1.25rem",
       color: arcGrey,
       fontWeight: 300,
+    },
+  },
+  //Styling textInput If using the overrides key of the theme,
+  //you need to use the following style sheet name: MuiInputLabel
+  //https://material-ui.com/api/input-label/
+  overrides: {
+    MuiInputLabel: {
+      root: {
+        color: arcBlue,
+        fontSize: "1rem",
+      },
+    },
+    MuiInput: {
+      root: {
+        color: arcGrey,
+        fontWeight: 300,
+      },
+      underline: {
+        "&:before": {
+          borderBottom: `2px solid ${arcBlue}`,
+        },
+        "&:hover:not($disabled):not($error):before": {
+          borderBottom: `4px solid ${arcBlue}`,
+        },
+        "&:focused:before": {
+          borderBottom: `4px solid ${arcBlue}`,
+        },
+      },
     },
   },
 });
