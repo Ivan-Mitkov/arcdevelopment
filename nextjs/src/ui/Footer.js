@@ -1,7 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/styles";
 import Grid from "@material-ui/core/Grid";
-import { Link } from "react-router-dom";
+import Link from "../../src/Link";
 import Hidden from "@material-ui/core/Hidden";
 
 // import footerAdornment from "../../assets/footerAdornment.svg";
@@ -80,7 +80,7 @@ const Footer = (props) => {
                 item
                 className={classes.link}
                 component={Link}
-                to="/"
+                href="/"
                 data-value="0"
               >
                 Home
@@ -99,7 +99,7 @@ const Footer = (props) => {
                 item
                 className={classes.link}
                 component={Link}
-                to="/services"
+                href="/services"
                 data-index="0"
               >
                 Services
@@ -108,7 +108,7 @@ const Footer = (props) => {
                 item
                 className={classes.link}
                 component={Link}
-                to="/customsoftware"
+                href="/customsoftware"
                 data-index="1"
               >
                 Custom Software Development
@@ -117,7 +117,7 @@ const Footer = (props) => {
                 item
                 className={classes.link}
                 component={Link}
-                to="/mobileapps"
+                href="/mobileapps"
                 data-index="2"
               >
                 Mobile App Development
@@ -126,7 +126,7 @@ const Footer = (props) => {
                 item
                 className={classes.link}
                 component={Link}
-                to="/websites"
+                href="/websites"
                 data-index="3"
               >
                 Website Development
@@ -139,7 +139,7 @@ const Footer = (props) => {
                 item
                 className={classes.link}
                 component={Link}
-                to="/revolution"
+                href="/revolution"
               >
                 The Revolution
               </Grid>
@@ -147,7 +147,7 @@ const Footer = (props) => {
                 item
                 className={classes.link}
                 component={Link}
-                to="/revolution"
+                href="/revolution"
               >
                 Vision
               </Grid>
@@ -155,7 +155,7 @@ const Footer = (props) => {
                 item
                 className={classes.link}
                 component={Link}
-                to="/revolution"
+                href="/revolution"
               >
                 Technology
               </Grid>
@@ -163,7 +163,7 @@ const Footer = (props) => {
                 item
                 className={classes.link}
                 component={Link}
-                to="/revolution"
+                href="/revolution"
               >
                 Process
               </Grid>
@@ -171,13 +171,28 @@ const Footer = (props) => {
           </Grid>
           <Grid item className={classes.gridItem}>
             <Grid container direction="column" spacing={2} data-value="3">
-              <Grid item className={classes.link} component={Link} to="/about">
+              <Grid
+                item
+                className={classes.link}
+                component={Link}
+                href="/about"
+              >
                 About Us
               </Grid>
-              <Grid item className={classes.link} component={Link} to="/about">
+              <Grid
+                item
+                className={classes.link}
+                component={Link}
+                href="/about"
+              >
                 History
               </Grid>
-              <Grid item className={classes.link} component={Link} to="/about">
+              <Grid
+                item
+                className={classes.link}
+                component={Link}
+                href="/about"
+              >
                 Team
               </Grid>
             </Grid>
@@ -188,7 +203,7 @@ const Footer = (props) => {
                 item
                 className={classes.link}
                 component={Link}
-                to="/contact"
+                href="/contact"
               >
                 Contact Us
               </Grid>
@@ -198,7 +213,7 @@ const Footer = (props) => {
       </Hidden>
       <img
         alt="black decorative slash"
-        src={"/assets/footerAdornment.svg"}
+        src="/assets/footerAdornment.svg"
         className={classes.adornment}
       />
       <Grid

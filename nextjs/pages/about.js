@@ -185,7 +185,11 @@ export default function About(props) {
           </Typography>
         </Grid>
         <Grid item>
-          <Avatar alt="founder" src={profile} className={classes.avatar} />
+          <Avatar
+            alt="founder"
+            src="../assets/founder.jpg"
+            className={classes.avatar}
+          />
         </Grid>
         <Grid item container justify={matchesMD ? "center" : undefined}>
           <Hidden lgUp>
@@ -212,7 +216,7 @@ export default function About(props) {
           >
             <Grid item>
               <img
-                src={yearbook}
+                src="../assets/yearbook.svg"
                 alt="yearbook page about founder"
                 style={{ maxWidth: matchesMD ? 300 : undefined }}
               />
@@ -246,7 +250,7 @@ export default function About(props) {
           >
             <Grid item>
               <img
-                src={puppy}
+                src="../assets/puppy.svg"
                 alt="grey spotted puppy"
                 style={{ maxWidth: matchesMD ? 300 : undefined }}
               />

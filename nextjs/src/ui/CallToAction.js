@@ -18,7 +18,7 @@ const useStyle = makeStyles((theme) => ({
     ...theme.typography.learnBtn,
   },
   background: {
-    backgroundImage: url("/assets/background.jpg"),
+    backgroundImage: `url("/assets/background.jpg")`,
     backgroundPosition: "center",
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",

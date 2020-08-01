@@ -6,7 +6,7 @@ import { makeStyles } from "@material-ui/styles";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Button from "@material-ui/core/Button";
-import { Link } from "react-router-dom";
+import Link from "../../src/Link";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
@@ -17,8 +17,9 @@ import IconButton from "@material-ui/core/IconButton";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
+import Hidden from "@material-ui/core/Hidden";
 
-import logo from "../../assets/logo.svg";
+// import logo from "../assets/logo.svg";
 
 function ElevationScroll(props) {
   const { children } = props;
@@ -130,6 +131,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 const Header = (props) => {
+  // console.dir(props);
   const { value, setValue, setSelectedIndex, selectedIndex } = props;
   const classes = useStyles();
   const theme = useTheme();
@@ -166,6 +168,7 @@ const Header = (props) => {
     { name: " Website Development", link: "/websites" },
   ];
   useEffect(() => {
+    console.log("useeffect");
     const num = [
       "/",
       "/services",
@@ -186,52 +189,54 @@ const Header = (props) => {
     <React.Fragment>
       <Tabs
         value={value}
-        onChange={handleChange}
+        //not updating active if not passing e and value
+        onChange={(e, value) => handleChange(e, value)}
         className={classes.tabContainer}
         indicatorColor="primary"
-        textColor={theme.palette.white}
       >
-        <Tab label="Home" className={classes.tab} component={Link} to="/" />
+        <Tab label="Home" className={classes.tab} component={Link} href="/" />
         <Tab
           aria-owns={anchorEl ? "simple-menu" : undefined}
           aria-haspopup={anchorEl ? "true" : undefined}
           label="Services"
           className={classes.tab}
           component={Link}
-          to="/services"
+          href="/services"
           onMouseOver={(e) => handleClick(e)}
         />
         <Tab
           label="The Revolution"
           className={classes.tab}
           component={Link}
-          to="/revolution"
+          href="/revolution"
         />
         <Tab
           label="About Us"
           className={classes.tab}
           component={Link}
-          to="/about"
+          href="/about"
         />
         <Tab
           label="Contact Us"
           className={classes.tab}
           component={Link}
-          to="/contact"
+          href="/contact"
         />
       </Tabs>
+
       <Button
         variant="contained"
         color="secondary"
         className={classes.btn}
         component={Link}
-        to="/estimate"
+        href="/estimate"
         onClick={(e) => {
-          setValue(5);
+          setValue(e, undefined);
         }}
       >
         Free Estimate
       </Button>
+
       <Menu
         id="simple-menu"
         anchorEl={anchorEl}
@@ -246,7 +251,7 @@ const Header = (props) => {
           <MenuItem
             key={m.name}
             component={Link}
-            to={m.link}
+            href={m.link}
             classes={{ root: classes.menuItem }}
             onClick={(e) => {
               handleMenuItemClick(e, i);
@@ -283,7 +288,7 @@ const Header = (props) => {
             divider
             button
             component={Link}
-            to="/"
+            href="/"
             selected={value === 0}
           >
             <ListItemText
@@ -300,7 +305,7 @@ const Header = (props) => {
           </ListItem>
           <ListItem
             component={Link}
-            to="/services"
+            href="/services"
             divider
             button
             selected={value === 1}
@@ -319,7 +324,7 @@ const Header = (props) => {
           </ListItem>
           <ListItem
             component={Link}
-            to="/revolution"
+            href="/revolution"
             divider
             button
             selected={value === 2}
@@ -338,7 +343,7 @@ const Header = (props) => {
           </ListItem>
           <ListItem
             component={Link}
-            to="/about"
+            href="/about"
             divider
             button
             selected={value === 3}
@@ -357,7 +362,7 @@ const Header = (props) => {
           </ListItem>
           <ListItem
             component={Link}
-            to="/contact"
+            href="/contact"
             divider
             button
             selected={value === 4}
@@ -376,7 +381,7 @@ const Header = (props) => {
           </ListItem>
           <ListItem
             component={Link}
-            to="/estimate"
+            href="/estimate"
             divider
             button
             className={classes.drawerItemEstimate}
@@ -412,18 +417,20 @@ const Header = (props) => {
           <Toolbar disableGutters>
             <Button
               component={Link}
-              to="/"
+              href="/"
               className={classes.logoContainer}
               disableRipple
               onClick={() => setValue(0)}
             >
               <img
-                src={"/assets/logo.svg"}
+                src="/assets/logo.svg"
                 alt="company logo"
                 className={classes.logo}
               />
             </Button>
-            {matches ? drawer : tabs}
+            {/* //media query sometimes nedd some time */}
+            <Hidden mdDown>{tabs}</Hidden>
+            <Hidden lgUp> {drawer}</Hidden>
           </Toolbar>
         </AppBar>
       </ElevationScroll>
