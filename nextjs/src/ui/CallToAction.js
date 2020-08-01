@@ -1,11 +1,11 @@
 import React from "react";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
-import ButtonArrow from "../../components/ui/ButtonArrow";
+import ButtonArrow from "./ButtonArrow";
 import Typography from "@material-ui/core/Typography";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { makeStyles, useTheme } from "@material-ui/styles";
-import { Link } from "react-router-dom";
+import  Link  from "../Link";
 
 // import background from "../../assets/background.jpg";
 // import mobileBackground from "../../assets/mobileBackground.jpg";
@@ -83,7 +83,7 @@ const CallToAction = ({ setValue }) => {
                 variant="outlined"
                 className={[classes.btn, classes.learnBtnHero].join(" ")}
                 component={Link}
-                to="/revolution"
+                href="/revolution"
                 onClick={() => {
                   setValue(2);
                 }}
@@ -104,7 +104,7 @@ const CallToAction = ({ setValue }) => {
           variant="contained"
           className={[classes.estimateBtn, classes.btn].join(" ")}
           component={Link}
-          to="/estimate"
+          href="/estimate"
           onClick={() => {
             setValue(5);
           }}
