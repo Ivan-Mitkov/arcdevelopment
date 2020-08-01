@@ -417,7 +417,11 @@ const Header = (props) => {
               disableRipple
               onClick={() => setValue(0)}
             >
-              <img src={logo} alt="company logo" className={classes.logo} />
+              <img
+                src={"/assets/logo.svg"}
+                alt="company logo"
+                className={classes.logo}
+              />
             </Button>
             {matches ? drawer : tabs}
           </Toolbar>

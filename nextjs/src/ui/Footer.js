@@ -4,10 +4,10 @@ import Grid from "@material-ui/core/Grid";
 import { Link } from "react-router-dom";
 import Hidden from "@material-ui/core/Hidden";
 
-import foofterAdornment from "../../assets/Footer Adornment.svg";
-import facebook from "../../assets/facebook.svg";
-import twitter from "../../assets/twitter.svg";
-import instagram from "../../assets/instagram.svg";
+// import footerAdornment from "../../assets/footerAdornment.svg";
+// import facebook from "../../assets/facebook.svg";
+// import twitter from "../../assets/twitter.svg";
+// import instagram from "../../assets/instagram.svg";
 
 const useStyles = makeStyles((theme) => ({
   footer: {
@@ -198,10 +198,15 @@ const Footer = (props) => {
       </Hidden>
       <img
         alt="black decorative slash"
-        src={foofterAdornment}
+        src={"/assets/footerAdornment.svg"}
         className={classes.adornment}
       />
-      <Grid container className={classes.socialContainer} justify="flex-end" spacing={1}>
+      <Grid
+        container
+        className={classes.socialContainer}
+        justify="flex-end"
+        spacing={1}
+      >
         <Grid
           item
           component={"a"}
@@ -209,7 +214,11 @@ const Footer = (props) => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img alt="facebook" src={facebook} className={classes.icon} />
+          <img
+            alt="facebook"
+            src={"/assets/facebook.svg"}
+            className={classes.icon}
+          />
         </Grid>
         <Grid
           item
@@ -218,7 +227,11 @@ const Footer = (props) => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img alt="twitter" src={twitter} className={classes.icon} />
+          <img
+            alt="twitter"
+            src={"/assets/twitter.svg"}
+            className={classes.icon}
+          />
         </Grid>
         <Grid
           item
@@ -227,7 +240,11 @@ const Footer = (props) => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img alt="instagram" src={instagram} className={classes.icon} />
+          <img
+            alt="instagram"
+            src={"/assets/instagram.svg"}
+            className={classes.icon}
+          />
         </Grid>
       </Grid>
     </footer>
